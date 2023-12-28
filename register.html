@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<head>
+    <title>Registration Form</title>
+    <style>
+        .container{
+            border: 2px solid;
+            padding: 25px;
+            margin: 20px 425px;
+            border-radius: 20px;
+            background-color: rgb(219, 224, 222);
+        }
+        *{
+            font-weight: bold;
+            font-size: 16px;
+            /* margin-left: 10px; */
+            /* float:right; */
+
+        }
+        h1{
+            margin-left: 40%;
+            font-style: italic;
+            font-size: 20px;
+        }
+        .inp{
+            float: right;
+            border-radius: 6px;
+            /* border: none; */
+            font-size: 12px;
+            padding: 3px 5px;
+        }
+        button{
+            margin-left: 175px;
+            background-color: rgb(95, 101, 101);
+            color: rgb(250, 243, 243);
+            border-radius: 10px;
+            padding: 6px 15px;
+            width: 120px;
+        }
+        button:hover{
+            background-color: white;
+            color: black;
+            /* transition: ; */
+            transition-delay: 0.3s;
+            cursor: pointer;
+            box-shadow: 3px 4px;
+            
+        }
+    </style>
+</head>
+<body>
+    <h1>Submit the Student details</h1>
+    <form action="" class="container">
+        <div>
+            <label for="name">Full Name: </label>
+            <input type="text" name="Full name" id="name" class="inp">
+        </div>
+        <br>
+        <div>
+            <label for="uname">User Name: </label>
+            <input type="text" name="uname" id="name" class="inp">
+        </div>
+        <br>
+        <div>
+            <label for="dept">Department: </label>
+            <select name="Department" id="dept" class="inp">
+                <option value="CSE">CSE</option>
+                <option value="ECE">ECE</option>
+                <option value="MECH">MECH</option>
+                <option value="CIVIL">CIVIL</option>
+                <option value="EEE">EEE</option>
+                <option value="CHEM">CHEM</option>
+                <option value="IT">IT</option>
+            </select>
+        </div>
+        <br>
+        <div>
+            <label for="sec">Section: </label>
+            <input type="number" name="Section" id="sec" max="4" class="inp">
+        </div>
+        <br>
+        <div>
+            <label for="date"> DOB: </label>
+            <input type="date" name="Date of birth" id="date" class="inp">
+        </div>
+        <br>
+        <div>
+            Gender: <input type="radio" name="SGender"> Male
+                    <input type="radio" name="SGender"> Female
+                    <input type="radio" name="SGender"> Others
+        </div>
+        <br>
+        <div>
+            <label for="no">Mobile: </label>
+            <input type="number" name="Mobile number" id="no" maxlength="10" class="inp">
+        </div>
+        <br>
+        <div>
+            <label for="mail">Email: </label>
+            <input type="email" name="Email" id="mail" class="inp">
+        </div>
+        <br>
+        <div>
+            <label for="pass">Password: </label>
+            <input type="password" name="pass" id="pass" placeholder="Enter Password" class="inp">
+        </div>
+        <br>
+        <div>
+            <label for="cpass">Confirm Password: </label>
+            <input type="password" name="cpass" id="cpass" placeholder="Confirm Password" class="inp">
+        </div>
+        <br>
+        <div>
+            <input type="checkbox" name="Decision" id="dec">
+            <label for="dec" > I have read all the instructions. I accept the terms and conditions</label>
+        </div>
+        <br>
+        <div>
+            <button>submit</button>
+            <!-- <input type="reset" value="Reset now"> -->
+        </div>
+    </form>
+</body>
+</html>
