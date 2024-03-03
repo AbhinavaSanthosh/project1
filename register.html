@@ -5,9 +5,11 @@
         .container{
             border: 2px solid;
             padding: 25px;
-            margin: 20px 425px;
+            margin: 15px 420px;
             border-radius: 20px;
-            background-color: rgb(219, 224, 222);
+            /* background-color: rgb(219, 224, 222); */
+            background-color: rgb(13, 12, 35);
+            box-shadow: 10px 10px 20px 0px;
         }
         *{
             font-weight: bold;
@@ -21,23 +23,29 @@
             font-style: italic;
             font-size: 20px;
         }
+        label{
+            color: white;
+        }
         .inp{
             float: right;
+            border: 2px solid transparent;
             border-radius: 6px;
+            background-color: rgb(162, 169, 215, 0.2);
             /* border: none; */
             font-size: 12px;
             padding: 3px 5px;
+            color: white;
         }
         button{
             margin-left: 175px;
-            background-color: rgb(95, 101, 101);
-            color: rgb(250, 243, 243);
+            background-color:white;
+            color:black;
             border-radius: 10px;
             padding: 6px 15px;
             width: 120px;
         }
         button:hover{
-            background-color: white;
+            background-color: rgb(64, 214, 192);
             color: black;
             /* transition: ; */
             transition-delay: 0.3s;
@@ -45,6 +53,20 @@
             box-shadow: 3px 4px;
             
         }
+        option{
+            background-color: white;
+            color: black;
+        }
+       
+        /* .input-control input:focus{
+            outline: 0;
+        }
+        .input-control.succes input{
+            background-color: green;
+        }
+        .input-control.error input{
+            border-color: red;
+        } */
     </style>
 </head>
 <body>
@@ -57,7 +79,7 @@
         <br>
         <div>
             <label for="uname">User Name: </label>
-            <input type="text" name="uname" id="name" class="inp">
+            <input type="text" name="uname" id="uname" class="inp" required> 
         </div>
         <br>
         <div>
@@ -74,8 +96,8 @@
         </div>
         <br>
         <div>
-            <label for="sec">Section: </label>
-            <input type="number" name="Section" id="sec" max="4" class="inp">
+            <label for="sec">Section:</label>
+            <input type="number" name="Section" id="sec" max="4" min="1" class="inp">
         </div>
         <br>
         <div>
@@ -83,10 +105,10 @@
             <input type="date" name="Date of birth" id="date" class="inp">
         </div>
         <br>
-        <div>
-            Gender: <input type="radio" name="SGender"> Male
-                    <input type="radio" name="SGender"> Female
-                    <input type="radio" name="SGender"> Others
+        <div class="gen">
+            Gender: <label><input type="radio" name="SGender"> Male</label>
+                    <label><input type="radio" name="SGender"> Female</label>
+                    <label><input type="radio" name="SGender"> Others</label>
         </div>
         <br>
         <div>
@@ -115,9 +137,61 @@
         </div>
         <br>
         <div>
-            <button>submit</button>
+            <input type="file" id="myfile">
+            <input type="reset" value="Reset">
+            <button onclick="check_register()">submit</button>
             <!-- <input type="reset" value="Reset now"> -->
         </div>
     </form>
+
+    <script>
+        function check_register() {
+            let username = document.getElementById("uname");
+            let password = document.getElementById("pass")
+            let confirm_password = document.getElementById("cpass")
+            let email_id = document.getElementById("mail")
+            let mobile_no = document.getElementById("no");
+            var email = /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/;
+            var numbers = /^[0-9]+$/;
+            if (username.value.length < 6) {
+                alert('Username must be of atleast 6 characters.');
+                console.log('Username must be of atleast 6 characters.');
+                return false;
+            } else if (password.value.length < 8) {
+                alert('Password must be of atleast 8 characters');
+                console.log('Password must be of atleast 8 characters');
+            } else if (password.value != confirm_password.value) {
+                alert('Confirm password must be the same of passsword');
+                console.log('Confirm password must be the same of passsword');
+            } else if (!/(?=.*[A-Z])/.test(password.value)) {
+                alert('Password should contain at least one uppercase letter');
+                console.log('Password should contain at least one uppercase letter');
+            } else if (!/(?=.*[a-z])/.test(password.value)) {
+                alert('Password should contain at least one lowercase letter');
+                console.log('Password should contain at least one lowercase letter');
+            } else if (!/(?=.*[0-9])/.test(password.value)) {
+                alert('Password should contain at least one numeric digit');
+                console.log('Password should contain at least one numeric digit');
+            } else if (!/(?=.[!@#$%^&])/.test(password.value)) {
+                alert('Password should contain at least one special symbol');
+                console.log('Password should contain at least one special symbol');
+            } else if (!email_id.value.match(email)){
+                alert('Enter valid Email id');
+                console.log('Enter valid Email id');
+            } else if (mobile_no.value.length != 10){
+                alert('Mobile number must contain 10 digits');
+                console.log('Mobile number must contain 10 digits');
+            } else if (!mobile_no.value.match(numbers)){
+                alert('Mobile number must contain only digits');
+                console.log('Mobile number must contain only digits');
+            } else if (!mobile_no.value.charAt(0).match('(?=.*[6-9])')) {
+                alert('Mobile number must start with any number from 6-9');
+                console.log('Mobile number must start with any number from 6-9');
+            } else {
+                alert('Registration successful');
+                console.log('success');
+            }
+        }
+    </script>
 </body>
 </html>
